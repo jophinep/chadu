@@ -1,0 +1,55 @@
+#!/bin/bash
+
+usage_error () {
+  cat << EOF
+--------------------------------------------------------------------------------------------------------
+Name: chadu
+chadu means jump
+--------------------------------------------------------------------------------------------------------
+Description
+--------------------------------------------------------------------------------------------------------
+Used jump directly to any inner recursive directory
+use as: '. chadu <dir-name/part of dir-name>'
+
+Suppose you are in '/home/jophine/jack/' and you need to jump to '/home/jophine/jack/fetch/water/pot'
+just use '. chadu pot' or '. chadu po'
+You will have a list of options like:
+1 /home/jophine/jack/fetch/water/pot
+2 /home/jophine/jack/drink/water/pot
+3 /home/jophine/jack/fetch/lake/pot
+4 /home/jophine/jack/drink/ice/pot
+now choose 1 and give ENTER
+
+Having an alias like alias chadu='. chadu' will also help easy execution like:
+'chadu <dir-name/part of dir-name>'
+--------------------------------------------------------------------------------------------------------
+EOF
+}
+if [ $1 == '-h' ] || [ $1 == '--help' ] || [ -z "$1" ]
+then
+  usage_error
+else
+  echo $1
+  declare -a paths=(`ls -R|grep "/$1[A-Za-z0-9\-\_\ \.]*:"`)
+  pathCount=${#paths[@]}
+  if [ $pathCount -eq 0 ]
+  then
+    echo "No such occurrence"
+  else
+    pathCount=`expr $pathCount - 1`
+    for i in $(eval echo {0..$pathCount})
+    do
+      echo `eval expr $i + 1` ${paths[$i]%?}
+    done
+    read -p "Enter the path number: " select
+    pathCount=`expr $pathCount + 1`
+    echo $select
+    if [ $select -gt 0 ] && [ $select -le $pathCount ]
+    then
+      select=`expr $select - 1`
+      cd ${paths[$select]%?}
+    else
+      echo "Choose correct path number"
+    fi
+  fi
+fi
