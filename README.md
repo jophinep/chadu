@@ -1,24 +1,32 @@
-chadu
+#chadu
 =====
 
-Jump directly to any inner recursive directory.. chadu means jump
+#####Jump directly to any inner recursive directory..
+#####chadu means jump
 
------------------------------------------------------------------------------
-Name: chadu
------------------------------------------------------------------------------
-chadu means jump
------------------------------------------------------------------------------
-Description
------------------------------------------------------------------------------
+---
+
+**How to install**
+
+```shel
+wget -O /usr/bin/bd https://raw.github.com/jophinep/chadu/master/chadu
+chmod +rx /usr/bin/chadu
+echo 'alias chadu=". chadu"' >> ~/.bashrc
+source ~/.bashrc
+```
+---
+
+**Description**
+
 Used jump directly to any inner recursive directory
 
-use as: '. chadu [dir-name/part of dir-name]'
+use as: `. chadu [dir-name/part of dir-name]`
 
------------------------------------------------------------------------------
+---
 
-Suppose you are in '/home/jophine/jack/' and you need to jump to '/home/jophine/jack/fetch/water/pot'
+Suppose you are in `'/home/jophine/jack/'` and you need to jump to `'/home/jophine/jack/fetch/water/pot'`
 
-just use '. chadu pot' or '. chadu po'
+just use `. chadu pot` or `. chadu po`
 
 You will have a list of options like:
 
@@ -32,10 +40,10 @@ You will have a list of options like:
 
 now choose 1 and give ENTER
 
------------------------------------------------------------------------------
+---
 
-Having an alias like alias chadu='. chadu' will also help easy execution like:
+Having an alias like `alias chadu='. chadu'` will also help easy execution like:
 
-'chadu [dir-name/part of dir-name]'
+`chadu [dir-name/part of dir-name]`
 
-------------------------------------------------------------------------------
+---
