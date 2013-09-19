@@ -6,7 +6,7 @@
 
 ---
 
-**How to install**
+**How to install?**
 
 ```shel
 wget -O /usr/bin/chadu https://raw.github.com/jophinep/chadu/master/chadu
@@ -19,6 +19,10 @@ source ~/.bashrc
 **Description**
 
 Used to jump directly to any inner recursive directory
+
+---
+
+**How to Use?**
 
 use as: `chadu [dir-name/part of dir-name]`
 
