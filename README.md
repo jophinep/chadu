@@ -9,7 +9,7 @@
 **How to install**
 
 ```shel
-wget -O /usr/bin/bd https://raw.github.com/jophinep/chadu/master/chadu
+wget -O /usr/bin/chadu https://raw.github.com/jophinep/chadu/master/chadu
 chmod +rx /usr/bin/chadu
 echo 'alias chadu=". chadu"' >> ~/.bashrc
 source ~/.bashrc
