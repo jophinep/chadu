@@ -29,7 +29,8 @@ if [ $1 == '-h' ] || [ $1 == '--help' ] || [ -z "$1" ]
 then
   usage_error
 else
-  export IFS=","
+  IFS01=IFS
+  IFS=","
   pathCount=-1
   pathList=`find -iname "$1*" -type d|tr "\\n" ","`
   for path in $pathList
@@ -53,4 +54,5 @@ else
       echo "Choose correct path number"
     fi
   fi
+  IFS=$IFS01
 fi
