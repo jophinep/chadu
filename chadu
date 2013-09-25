@@ -42,16 +42,21 @@ else
   then
     echo "No such occurrence"
   else
-    for ((i=0; i<=$pathCount; i++))
-    do
-      echo $i ${paths[$i]}
-    done
-    read -p "Enter the path number: " select
-    if [ $select -ge 0 ] && [ $select -le $pathCount ]
+    if [ $pathCount -eq 0 ]
     then
-      cd ${paths[$select]}
+      cd ${paths[$pathCount]}
     else
-      echo "Choose correct path number"
+      for ((i=0; i<=$pathCount; i++))
+      do
+        echo $i ${paths[$i]}
+      done
+      read -p "Enter the path number: " select
+      if [ $select -ge 0 ] && [ $select -le $pathCount ]
+      then
+        cd ${paths[$select]}
+      else
+        echo "Choose correct path number"
+      fi
     fi
   fi
   IFS=$IFS01
