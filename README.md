@@ -14,6 +14,13 @@ chmod +rx /usr/bin/chadu
 echo 'alias chadu=". chadu"' >> ~/.bashrc
 source ~/.bashrc
 ```
+
+**Make it fast**
+
+To make this tool run faster, add the following entry as sudo user to ```/etc/rc.local``` file just before ```exit 0``` as:
+
+```chadu @#$%^*-_+=][}{:1234567890qwertyuiopasdfghjklzxcvbnm>.kuppai```
+
 ---
 
 **Description**
