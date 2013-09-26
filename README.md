@@ -17,9 +17,11 @@ source ~/.bashrc
 
 **Make it fast**
 
-To make this tool run faster, add the following entry as sudo user to ```/etc/rc.local``` file just before ```exit 0``` as:
+To make this tool run faster, execute the following command
 
-```chadu @#$%^*-_+=][}{:1234567890qwertyuiopasdfghjklzxcvbnm>.kuppai```
+```echo 'chadu @#$%^*-_+=][}{:1234567890qwertyuiopasdfghjklzxcvbnm>.kuppai' >> ~/.bashrc```
+
+The very first time you start the terminal, it may load slowly, but not after that
 
 ---
 
