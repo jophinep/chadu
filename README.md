@@ -14,15 +14,6 @@ chmod +rx /usr/bin/chadu
 echo 'alias chadu=". chadu"' >> ~/.bashrc
 source ~/.bashrc
 ```
-
-**Make it fast**
-
-To make this tool run faster, execute the following command
-
-```echo 'chadu @#$%^*-_+=][}{:1234567890qwertyuiopasdfghjklzxcvbnm>.kuppai' >> ~/.bashrc```
-
-The very first time you start the terminal, it may load slowly, but not after that
-
 ---
 
 **Description**
