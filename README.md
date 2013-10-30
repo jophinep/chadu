@@ -45,3 +45,9 @@ You will have a list of options like:
 now choose 1 and give ENTER
 
 ---
+
+**Make it FAAASTER**
+
+To make the command run faster, avoid running it from home directory or its parent directories
+
+---
