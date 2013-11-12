@@ -52,6 +52,9 @@ To make the command run faster, avoid running it from home directory or its pare
 
 ---
 
-**Chef Users Note**
+**Note: Chef Users**
 
-Chef users you can find a cookbook for chadu installation is opscode community http://community.opscode.com/cookbooks/chadu
+Chef users, you can find a cookbook for chadu installation is opscode community
+http://community.opscode.com/cookbooks/chadu
+
+---
