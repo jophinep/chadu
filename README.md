@@ -51,3 +51,7 @@ now choose 1 and give ENTER
 To make the command run faster, avoid running it from home directory or its parent directories
 
 ---
+
+**Chef Users Note**
+
+Chef users you can find a cookbook for chadu installation is opscode community http://community.opscode.com/cookbooks/chadu
