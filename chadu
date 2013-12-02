@@ -9,10 +9,10 @@ chadu means jump
 Description
 --------------------------------------------------------------------------------------------------------
 Used jump directly to any inner recursive directory
-use as: '. chadu <dir-name/part of dir-name>'
+use as: 'chadu <dir-name/part of dir-name>'
 
 Suppose you are in '/home/jophine/jack/' and you need to jump to '/home/jophine/jack/fetch/water/pot'
-just use '. chadu pot' or '. chadu po'
+just use 'chadu pot' or 'chadu po'
 You will have a list of options like:
 1 /home/jophine/jack/fetch/water/pot
 2 /home/jophine/jack/drink/water/pot
@@ -20,44 +20,47 @@ You will have a list of options like:
 4 /home/jophine/jack/drink/ice/pot
 now choose 1 and give ENTER
 
-Having an alias like alias chadu='. chadu' will also help easy execution like:
-'chadu <dir-name/part of dir-name>'
 --------------------------------------------------------------------------------------------------------
 EOF
 }
-if [ $1 == '-h' ] || [ $1 == '--help' ] || [ -z "$1" ]
+if [ -z "$1" ]
 then
   usage_error
 else
-  IFS01=IFS
-  IFS=","
-  pathCount=-1
-  pathList=`find -iname "$1*" -type d|tr "\\n" ","`
-  for path in $pathList
-  do
-    pathCount=$[$pathCount + 1]
-    paths[$pathCount]=$path
-  done
-  if [ $pathCount -eq -1 ]
+  if [ $1 == '-h' ] || [ $1 == '--help' ]
   then
-    echo "No such occurrence"
+    usage_error
   else
-    if [ $pathCount -eq 0 ]
+    IFS01=IFS
+    IFS=","
+    pathCount=-1
+    pathList=`find -iname "$1*" -type d|tr "\\n" ","`
+    for path in $pathList
+    do
+      pathCount=$[$pathCount + 1]
+      paths[$pathCount]=$path
+    done
+    if [ $pathCount -eq -1 ]
     then
-      cd ${paths[$pathCount]}
+      echo "No such occurrence"
     else
-      for ((i=0; i<=$pathCount; i++))
-      do
-        echo $i ${paths[$i]}
-      done
-      read -p "Enter the path number: " select
-      if [ $select -ge 0 ] && [ $select -le $pathCount ]
+      if [ $pathCount -eq 0 ]
       then
-        cd ${paths[$select]}
+        cd ${paths[$pathCount]}
       else
-        echo "Choose correct path number"
+        for ((i=0; i<=$pathCount; i++))
+        do
+          echo $i ${paths[$i]}
+        done
+        read -p "Enter the path number: " select
+        if [ $select -ge 0 ] && [ $select -le $pathCount ]
+        then
+          cd ${paths[$select]}
+        else
+          echo "Choose correct path number"
+        fi
       fi
     fi
+    IFS=$IFS01
   fi
-  IFS=$IFS01
 fi
