@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo "Started downloading 'chadu' from github.."
+wget -O /usr/bin/chadu https://raw.github.com/jophinep/chadu/master/chadu
+chmod +rx /usr/bin/chadu
+echo "Adding alias.."
+echo 'alias chadu=". chadu"' >> ~/.bashrc
+source ~/.bashrc
+echo "chadu installation completed."
+echo -e '''
+Thanks, for downloading chadu..
+For reporting issues, visit: https://github.com/jophinep/chadu/issues
+Or you can write to "bhillubasha@gmail.com" with subject: "Chadu-issue"
+We appriciate your FEEDBACK.. as well
+
+--
+With Regards,
+Jophine Pranjal'''
