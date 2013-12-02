@@ -10,7 +10,7 @@
 
 You will need sudo or root permission to do the installation
 
-Download the chadu installation 'package https://github.com/jophinep/chadu/archive/master.zip'
+Download the chadu installation package: https://github.com/jophinep/chadu/archive/master.zip
 
 Extract it and open the chadu-master directory
 
