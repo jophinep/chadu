@@ -8,11 +8,16 @@
 
 **How to install?**
 
+You will need sudo or root permission to do the installation
+
+Download the chadu installation 'package https://github.com/jophinep/chadu/archive/master.zip'
+
+Extract it and open the chadu-master directory
+
+Then execute the following commands
 ```shel
-wget -O /usr/bin/chadu https://raw.github.com/jophinep/chadu/master/chadu
-chmod +rx /usr/bin/chadu
-echo 'alias chadu=". chadu"' >> ~/.bashrc
-source ~/.bashrc
+chmod u+x install
+./install
 ```
 ---
 
