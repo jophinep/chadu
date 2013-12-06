@@ -16,7 +16,7 @@ Extract it and open the chadu-master directory
 
 Then execute the following commands
 ```shel
-chmod u+x install
+chmod +x install
 ./install
 ```
 ---
