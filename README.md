@@ -39,15 +39,15 @@ just use `chadu pot` or `chadu po`
 
 You will have a list of options like:
 
-1 /home/jophine/jack/fetch/water/pot
+0 /home/jophine/jack/fetch/water/pot
 
-2 /home/jophine/jack/drink/water/pot
+1 /home/jophine/jack/drink/water/pot
 
-3 /home/jophine/jack/fetch/lake/pot
+2 /home/jophine/jack/fetch/lake/pot
 
-4 /home/jophine/jack/drink/ice/pot
+3 /home/jophine/jack/drink/ice/pot
 
-now choose 1 and give ENTER
+now choose 0 and give ENTER
 
 ---
 
