@@ -27,7 +27,7 @@ if [ -z "$1" ]
 then
   usage_error
 else
-  if [ $1 == '-h' ] || [ $1 == '--help' ]
+  if [ $1 = '-h' ] || [ $1 = '--help' ]
   then
     usage_error
   else
