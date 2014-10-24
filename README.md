@@ -17,6 +17,7 @@ Extract it and open the chadu-master directory
 Then execute the following commands
 ```shel
 chmod +x install
+alias chadu=". chadu"
 ./install
 ```
 ---
