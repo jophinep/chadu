@@ -23,6 +23,13 @@ now choose 0 and give ENTER
 --------------------------------------------------------------------------------------------------------
 EOF
 }
+SHELL_NAME=`basename $SHELL`
+if [ $SHELL_NAME = "zsh" ]
+then
+  sindex=0
+else
+  sindex=-1
+fi
 if [ -z "$1" ]
 then
   usage_error
@@ -31,10 +38,15 @@ else
   then
     usage_error
   else
-    IFS01=IFS
-    IFS=","
-    pathCount=-1
-    pathList=`find -iname "$1*" -type d|tr "\\n" ","`
+    pathCount=$sindex
+    if [ $SHELL_NAME = "zsh" ]
+    then
+      pathList=($(find -iname "$1*" -type d))
+    else
+      IFS01=IFS
+      IFS=$","
+      pathList=`find -iname "$1*" -type d|tr "\\n" ","`
+    fi
     for path in $pathList
     do
       pathCount=$[$pathCount + 1]
@@ -44,15 +56,20 @@ else
     then
       echo "No such occurrence"
     else
-      if [ $pathCount -eq 0 ]
+      if [ $pathCount -eq $(($sindex+1)) ]
       then
         cd ${paths[$pathCount]}
       else
-        for ((i=0; i<=$pathCount; i++))
+        for ((i=$sindex+1; i<=$pathCount; i++))
         do
           echo $i ${paths[$i]}
         done
-        read -p "Enter the path number: " select
+        if [ $SHELL_NAME = "zsh" ]
+        then
+          vared -p "Enter the path number: " -c select
+        else
+          read -p "Enter the path number: " select
+        fi
         if [ $select -ge 0 ] && [ $select -le $pathCount ]
         then
           cd ${paths[$select]}
@@ -61,6 +78,9 @@ else
         fi
       fi
     fi
-    IFS=$IFS01
+    if [ $SHELL_NAME != "zsh" ]
+    then
+      IFS=$IFS01
+    fi
   fi
 fi
