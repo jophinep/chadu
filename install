@@ -1,10 +1,15 @@
-#!/bin/bash
+#!/bin/sh
 
 echo "Started downloading 'chadu' from github.."
-wget -O /usr/bin/chadu https://raw.github.com/jophinep/chadu/master/chadu
-chmod +rx /usr/bin/chadu
+wget -O /bin/chadu https://raw.github.com/jophinep/chadu/master/chadu
+chmod +rx /bin/chadu
 echo "Adding alias.."
-echo 'alias chadu=". chadu"' >> ~/.bashrc
+if [ `basename $SHELL` = "zsh" ]
+then
+  echo 'alias chadu=". chadu"' >> ~/.zshrc
+else
+  echo 'alias chadu=". chadu"' >> ~/.bashrc
+fi
 echo "chadu installation completed."
 echo -e '''
 Thanks, for downloading chadu..
